@@ -3,10 +3,9 @@
 # Add steps that publish symbols, save build artifacts, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
-#this means whe you push to the master branch, a build is triggered
+#this means when you push to the master branch, a build is triggered
 trigger:
-- master
-#test to see if this gets put in to GitHub 
+  - master
 
 #using the latest windows image to as SDK etc
 pool:
