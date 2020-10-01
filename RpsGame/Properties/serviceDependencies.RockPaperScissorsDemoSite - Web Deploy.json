@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/dockerpracticeserver/databases/RpsDemoDb100120",
+      "type": "mssql.azure",
+      "connectionId": "AzureDbConnectionString",
+      "secretStore": "AzureAppSettings"
+    }
+  }
+}
