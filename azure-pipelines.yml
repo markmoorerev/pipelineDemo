@@ -6,6 +6,7 @@
 #this means whe you push to the master branch, a build is triggered
 trigger:
 - master
+#test to see if this gets put in to GitHub 
 
 #using the latest windows image to as SDK etc
 pool:
