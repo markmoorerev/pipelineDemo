@@ -5,7 +5,7 @@
 
 #this means when you push to the master branch, a build is triggered
 trigger:
-  - master
+  - 'master'
 
 #using the latest windows image to as SDK etc
 pool:
