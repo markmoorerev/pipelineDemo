@@ -141,7 +141,5 @@ namespace RPS_GameMvc.GamePlay
             else if (game.rounds.Count(x => x.Outcome == 2) == 2) { return 2; }// get how many rounds computer has won.
             else return 0;
         }
-
-
     }//end of class
 }//end of namespace
