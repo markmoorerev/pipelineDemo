@@ -33,6 +33,14 @@ steps:
     projectKey: 'markmoore0827_azurePipelineMvcDemo'
     projectName: 'azurePipelineMvcDemo'
 
+#put testing here. New stuff below
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'test'
+    projects: './RPS_GameMvc.Tests/RPS_GameMvc.Tests.csproj'
+    arguments: '--output D:\a\1\TestResults'
+    testRunTitle: 'running tests'
+#new stuff above
 - task: DotNetCoreCLI@2
   displayName: Build
   inputs:
