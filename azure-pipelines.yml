@@ -85,3 +85,5 @@ steps:
     appName: 'RockPaperScissorsDemoSite'
     package: '$(System.DefaultWorkingDirectory)/**/*.zip'
     deploymentMethod: 'auto'
+
+- task: PublishBuildArtifacts@1
