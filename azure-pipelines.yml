@@ -42,34 +42,9 @@ steps:
 
 - task: SonarCloudAnalyze@1
 
-#this task is for building
-# - task: VSBuild@1
-#   inputs:
-#     solution: '$(solution)'
-#     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
-#     platform: '$(buildPlatform)'
-#     configuration: '$(buildConfiguration)'
-
-#WE HAVE NO TESTS YET. but this will test and collect the code coverage
-# - task: DotNetCoreCLI@2
-#   inputs:
-#     command: test
-#     projects: '**/*Tests/*.csproj'
-#     arguments: '--configuration $(buildConfiguration) --collect "Code coverage"'
-
-#this is MAYBE for collecting the test coverage????? 
-# - script: dotnet test <test-project> --logger trx --collect "Code coverage"
-# - task: PublishTestResults@2
-#   inputs:
-#     testRunner: VSTest
-#     testResultsFiles: '**/*.trx'
-
-#ALTERNATIVE TESTING -- this task is for testing
-# - task: VSTest@2
-#   inputs:
-#     platform: '$(buildPlatform)'
-#     configuration: '$(buildConfiguration)'
-# we need to add the reporting of test results to SonarCloud
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
 
 - task: DotNetCoreCLI@2
   inputs:
@@ -77,16 +52,6 @@ steps:
     publishWebProjects: True
     arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: True
-
-# - task: AzureRmWebAppDeployment@4
-#   inputs:
-#     ConnectionType: 'AzureRM'
-#     azureSubscription: 'Azure subscription 1(5d150957-9944-40b9-b9e9-2a32c983a1f8)'
-#     appType: 'webApp'
-#     WebAppName: 'RockPaperScissorsDemoSite'
-#     ResourceGroupName: 'Rpg_GameMvcApp'
-#     packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
-
 
 - task: AzureWebApp@1
   inputs:
