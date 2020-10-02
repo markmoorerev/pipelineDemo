@@ -2,7 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <UserSecretsId>3a13edd1-6e62-4db1-9578-572a9b314abd</UserSecretsId>
+	  <DebugType>Full</DebugType>
+	  <UserSecretsId>3a13edd1-6e62-4db1-9578-572a9b314abd</UserSecretsId>
+	  <ProjectGuid>{EDC476A1-A5C3-4C7D-BC18-469A28F48169}</ProjectGuid>
   </PropertyGroup>
 
   <ItemGroup>
