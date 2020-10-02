@@ -32,14 +32,19 @@ steps:
     scannerMode: 'MSBuild'
     projectKey: 'markmoore0827_azurePipelineMvcDemo'
     projectName: 'azurePipelineMvcDemo'
+    extraProperties: |
+      sonar.exclusions=**/obj/**,**/*.dll
+      sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/**/coverage.opencover.xml
+      sonar.cs.vstest.reportsPaths=$(Agent.TempDirectory)/*.trx
 
 #put testing here. New stuff below
 - task: DotNetCoreCLI@2
   inputs:
     command: 'test'
     projects: './RPS_GameMvc.Tests/RPS_GameMvc.Tests.csproj'
-    arguments: '--output D:\a\1\TestResults'
+    arguments: '--configuration $(BuildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=opencover --logger trx'
     testRunTitle: 'running tests'
+
 #new stuff above
 - task: DotNetCoreCLI@2
   displayName: Build
