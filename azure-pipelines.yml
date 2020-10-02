@@ -83,7 +83,7 @@ steps:
     azureSubscription: 'Azure subscription 1(5d150957-9944-40b9-b9e9-2a32c983a1f8)'
     appType: 'webApp'
     appName: 'RockPaperScissorsDemoSite'
-    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
     deploymentMethod: 'auto'
 
 - task: PublishBuildArtifacts@1
