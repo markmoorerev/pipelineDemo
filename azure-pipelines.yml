@@ -35,14 +35,14 @@ steps:
     extraProperties: |
       sonar.exclusions=**/obj/**,**/*.dll
       sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/**/coverage.opencover.xml
-      sonar.cs.vstest.reportsPaths=$(Agent.TempDirectory)/*.trx
+  # sonar.cs.vstest.reportsPaths=$(Agent.TempDirectory)/*.trx
 
 #put testing here. New stuff below
 - task: DotNetCoreCLI@2
   inputs:
     command: 'test'
     projects: './RPS_GameMvc.Tests/RPS_GameMvc.Tests.csproj'
-    arguments: '--configuration $(BuildConfiguration) --collect "Code coverage" --output $(Agent.TempDirectory) /p:CollectCoverage=true /p:CoverletOutputFormat=opencover --logger trx'
+    arguments: '--configuration $(BuildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=opencover --logger trx' #--output $(Agent.TempDirectory)
     testRunTitle: 'running tests'
 
 #new stuff above
