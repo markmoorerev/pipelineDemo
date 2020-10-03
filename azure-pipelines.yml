@@ -42,7 +42,7 @@ steps:
   inputs:
     command: 'test'
     projects: './RPS_GameMvc.Tests/RPS_GameMvc.Tests.csproj'
-    arguments: '--configuration $(BuildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=opencover --logger trx' #--output $(Agent.TempDirectory)
+    arguments: '--configuration $(BuildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=opencover,cobertura --logger trx' #--output $(Agent.TempDirectory)
     testRunTitle: 'running tests'
 
 #new stuff above
