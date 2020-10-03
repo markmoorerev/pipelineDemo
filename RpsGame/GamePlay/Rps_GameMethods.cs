@@ -144,7 +144,9 @@ namespace RPS_GameMvc.GamePlay
 
         public static int TestMeSendInt(int x)
         {
-            return x*x;
+            int y = x * x;
+            int z = y/x;
+            return z;
 		}
     }//end of class
 }//end of namespace
